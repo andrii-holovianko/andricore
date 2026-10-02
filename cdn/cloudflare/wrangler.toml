@@ -1,0 +1,15 @@
+# Cloudflare Worker in front of Edge Delivery Services (BYO CDN)
+# Source: https://github.com/adobe/aem-cloudflare-prod-worker
+# Deploy: cd cdn/cloudflare && npx wrangler deploy
+name = "andricore-aem"
+main = "src/index.mjs"
+account_id = "b1075ab5225c9911cf3ad4006470670a"
+compatibility_date = "2026-10-01"
+
+routes = [
+  { pattern = "andricore.com/*", zone_name = "andricore.com" },
+]
+
+[vars]
+ORIGIN_HOSTNAME = "main--andricore--andrii-holovianko.aem.live"
+PUSH_INVALIDATION = "enabled"
