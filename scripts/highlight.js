@@ -40,8 +40,12 @@ export default async function highlight(main) {
   grammars.forEach((g, i) => hljs.registerLanguage(g, modules[i].default));
   hljs.configure({ ignoreUnescapedHTML: true });
 
-  blocks.filter((b) => b.grammar).forEach(({ code, grammar }) => {
+  // highlight one block per task so long pages don't block the main thread
+  // eslint-disable-next-line no-restricted-syntax
+  for (const { code, grammar } of blocks.filter((b) => b.grammar)) {
     code.classList.add(`language-${grammar}`);
     hljs.highlightElement(code);
-  });
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((resolve) => { setTimeout(resolve, 0); });
+  }
 }

@@ -32,7 +32,7 @@ function formatDate(time) {
   });
 }
 
-function buildCard(article) {
+function buildCard(article, headingLevel) {
   const li = document.createElement('li');
   const a = document.createElement('a');
   a.href = article.path;
@@ -59,7 +59,7 @@ function buildCard(article) {
     time.textContent = date;
     body.append(time);
   }
-  const title = document.createElement('h3');
+  const title = document.createElement(headingLevel);
   title.textContent = article.title;
   body.append(title);
   if (article.description) {
@@ -85,8 +85,11 @@ export default async function decorate(block) {
   const limit = Number(config.limit) || 0;
 
   const articles = await fetchArticles(prefix);
+  // card titles sit one level below the nearest section heading
+  const headingLevel = block.closest('.section')?.querySelector('h2') ? 'h3' : 'h2';
   const ul = document.createElement('ul');
-  (limit ? articles.slice(0, limit) : articles).forEach((article) => ul.append(buildCard(article)));
+  (limit ? articles.slice(0, limit) : articles)
+    .forEach((article) => ul.append(buildCard(article, headingLevel)));
 
   if (!ul.children.length) {
     const empty = document.createElement('p');

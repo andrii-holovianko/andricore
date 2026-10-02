@@ -51,7 +51,7 @@
   padding: 24px 28px 28px;
 }
 
-.article-list .article-list-body h3 {
+.article-list .article-list-body :is(h2, h3) {
   margin: 0;
   font-size: var(--heading-font-size-s);
   line-height: 1.3;

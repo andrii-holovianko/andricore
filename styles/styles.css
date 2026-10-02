@@ -418,7 +418,7 @@ main .section .default-content-wrapper > h2 + p + .button-wrapper {
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--link-color);
+  color: var(--link-hover-color);
   font-family: var(--mono-font-family);
   font-size: 13px;
   font-weight: 500;
