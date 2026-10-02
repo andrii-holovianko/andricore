@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: inter; font-weight: 100 900; src: url('../../fonts/inter-var.woff2') format('woff2-variations'); }
+  @font-face { font-family: jbmono; font-weight: 100 800; src: url('../../fonts/jetbrains-mono-var.woff2') format('woff2-variations'); }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 627px; }
+  body {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 88% 12%, rgb(232 163 61 / 22%), transparent 42%),
+      radial-gradient(circle at 10% 110%, rgb(143 182 232 / 8%), transparent 40%),
+      #12161c;
+    color: #e8e6e3;
+    font-family: inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgb(255 255 255 / 3.5%) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 3.5%) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(90deg, transparent, #000 55%);
+  }
+  .frame {
+    position: absolute; inset: 40px;
+    border: 1px solid #2a313b; border-radius: 18px;
+    background: linear-gradient(180deg, rgb(27 33 41 / 70%), rgb(18 22 28 / 40%));
+  }
+  .accent { position: absolute; left: 40px; top: 96px; bottom: 96px; width: 3px; background: #e8a33d; border-radius: 2px; }
+  .content { position: absolute; left: 96px; right: 96px; top: 88px; bottom: 80px; display: flex; flex-direction: column; }
+  .pill {
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 12px;
+    padding: 9px 18px 9px 14px; border: 1px solid #39414d; border-radius: 999px;
+    background: rgb(22 27 34 / 80%); color: #c9ced6; font-size: 19px; font-weight: 500;
+  }
+  .pill::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #e8a33d; box-shadow: 0 0 0 5px rgb(232 163 61 / 20%); }
+  h1 { margin-top: 30px; font-size: 92px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+  .role { margin-top: 22px; font-size: 32px; font-weight: 500; color: #c9ced6; letter-spacing: -0.01em; }
+  .role b { color: #e8e6e3; font-weight: 650; }
+  .tags { margin-top: 26px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .tags span { padding: 7px 14px; border: 1px solid #2f3742; border-radius: 999px; font-family: jbmono, monospace; font-size: 17px; color: #9aa1ab; }
+  .bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; }
+  .domain { font-family: jbmono, monospace; font-size: 26px; color: #e8a33d; letter-spacing: 0.01em; }
+  .stats { display: flex; gap: 36px; }
+  .stats div { text-align: right; }
+  .stats b { display: block; font-size: 34px; font-weight: 700; letter-spacing: -0.03em; }
+  .stats small { font-size: 15px; color: #8b95a3; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="frame"></div>
+  <div class="accent"></div>
+  <div class="content">
+    <p class="pill" id="pill">Adobe Certified Master — AEM Sites Architect</p>
+    <h1 id="title">Andrii Holovianko</h1>
+    <p class="role" id="role"><b>Senior AEM Developer &amp; Architect.</b> 13+ years on enterprise AEM.</p>
+    <div class="tags" id="tags"><span>AEM as a Cloud Service</span><span>Edge Delivery Services</span><span>App Builder</span></div>
+    <div class="bottom">
+      <p class="domain" id="domain">andricore.com</p>
+      <div class="stats" id="stats">
+        <div><b>66</b><small>countries, one platform</small></div>
+        <div><b>1M+</b><small>pages migrated</small></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -222,6 +222,7 @@ write('index.html', page(
   section(meta({
     Title: 'Andrii Holovianko — Senior AEM Developer & Architect',
     Description: 'Adobe Certified Master — AEM Sites Architect with 13+ years building enterprise Adobe Experience Manager platforms: AEM as a Cloud Service, Edge Delivery Services, App Builder.',
+    Image: '<picture><img src="https://content.da.live/andrii-holovianko/andricore/media/og-home.png" alt="Andrii Holovianko — Senior AEM Developer &amp; Architect"></picture>',
   })),
 ));
 
@@ -236,6 +237,7 @@ write('blog/index.html', page(
   section(meta({
     Title: 'Writing — Andrii Holovianko',
     Description: 'Articles about Adobe Experience Manager architecture, AEM as a Cloud Service migrations and Edge Delivery Services.',
+    Image: '<picture><img src="https://content.da.live/andrii-holovianko/andricore/blog/media/og-blog.png" alt="Writing — notes from real AEM programs"></picture>',
   })),
 ));
 
