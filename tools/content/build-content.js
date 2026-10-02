@@ -139,10 +139,22 @@ const toolbox = [
 ];
 
 const testimonials = [
-  ['Having had the opportunity to work closely with Andrii for over a year, I highly recommend Andrii as an AEM Technical Lead. He is a skilled communicator, adept at asking the right questions to solve technical problems. Andrii’s pragmatic approach and ability to lead and earn the trust of his team make him an invaluable asset.',
-    '<strong>Sven Aarts</strong>Senior Software Engineer · worked with Andrii on the same team'],
-  ['If you give him just an idea, he’ll make all the best to have it implemented in the best way, clarify everything from requirements perspective, discuss solution with all necessary people and make sure deadlines are met. One of the most self-organized and self-managed persons I have ever worked with. Perfect combination of soft skills and deep tech knowledge.',
-    '<strong>Tim Sakharchuk</strong>Senior Delivery Manager, Exadel · managed Andrii directly'],
+  ["Having had the opportunity to work closely with Andrii for over a year, I highly recommend Andrii as an AEM Technical Lead. He is a skilled communicator, adept at asking the right questions to solve technical problems. Andrii’s pragmatic approach and ability to lead and earn the trust of his team make him an invaluable asset. I confidently recommend him for any AEM or technical leadership role.",
+    "<strong>Sven Aarts</strong>Senior Software Engineer · worked with Andrii on the same team, 2023"],
+  ["Andrii is a super talented Engineer you will be always happy to work with. He is a problem solver. If you give him just an idea, he’ll make all the best to have it implemented in the best way, clarify everything from requirements perspective, discuss solution with all necessary people and make sure deadlines are met. Strong Team-player. Very motivated and motivates others. One of the most self-organized and self-managed person I have ever worked with. Perfect combination of soft skills and deep tech knowledge.",
+    "<strong>Tim Sakharchuk</strong>Senior Delivery Manager, Exadel · managed Andrii directly, 2021"],
+  ["Andrii contributed a lot to the projects he was working on and to the Exadel AEM community development (within MarTech Practice). He has deep and strong knowledge in Java and AEM together with broad experience in problem solving. Andrii contributed to the open-source community leading one of the solutions from Exadel Toolbox for AEM — Exadel Backpack for AEM. Also I’d like to mention that Andrii has positive attitude to what he is doing which helps him to work in the team and keep great level of communication.",
+    "<strong>Vlad Baranov</strong>VP Digital Experience Delivery, Exadel · managed Andrii directly, 2021"],
+  ["Andrii would be an asset to have on any team and company. He’s a team leader, during his tenure at our company, he’s gone out of his way to welcome newcomers and resolve any problems they might have. He pitches innovative ideas during company meetings but also listens to what others have to say, including constructive criticism. If in some reason we couldn’t apply a provided solution from him, Andrii always comes up with creative solutions or alternatives. If someone asks me, do I want to work together with this guy in the future, I would definitely answer: “Yes, 100%”.",
+    "<strong>Anton Krynytskyi</strong>Software Engineer · worked with Andrii on the same team, 2020"],
+  ["I worked with Andrii for almost a year on his previous project. All this time our cooperation was effective and enjoyable. Andrii proved himself to be an experienced developer, competent and qualified technical specialist, possessing not only technical skills, but also the ability to manage various kinds of activities. He communicates well with both the customer and teammates, and can cope with tasks of any complexity. As a software engineer and teammate, Andrii earns my highest recommendation.",
+    "<strong>Oleksii Chuiev</strong>Senior Software Engineer, Certified AEM Developer · worked with Andrii on the same team, 2019"],
+  ["I worked together with Andrii as part of an Agile team at mensemedia. Andrii was absolutely great to work with. Besides his high technical skills, he is creative and very passionate about his work. He brings a great value to the team by constantly looking for ways to improve and deliver the best quality products.",
+    "<strong>Alina Lungu</strong>QA Automation Engineer · worked with Andrii on the same team, 2019"],
+  ["Andrii is very detailed-oriented and produced great results for the company. He feels responsible for the different projects and has always good ideas for improvement. Thanks a lot for your great work for mensemedia, was always fun working with you, happy hacking!",
+    "<strong>Lukas Rompf</strong>Technical Team Coordinator · managed Andrii directly, 2019"],
+  ["I had the pleasure of working with Andrii for a couple of years in an AEM development team. He is dedicated, self-motivated, reliable and a great team player. As he was an extremely important asset to our team, we would certainly miss him.",
+    "<strong>Mihail Trifunov</strong>Lead Software Engineer, N26 · worked with Andrii on the same team, 2019"],
 ];
 
 write('index.html', page(
@@ -190,6 +202,7 @@ write('index.html', page(
   ),
   section(
     '<h2>What colleagues say</h2>',
+    '<p>Recommendations from managers and teammates on LinkedIn.</p>',
     block('testimonials', testimonials.map(([q, a]) => row(`<p>${q}</p>`, `<p>${a}</p>`))),
     sectionMeta({ Eyebrow: 'Recommendations', Id: 'recommendations', Style: 'muted' }),
   ),
