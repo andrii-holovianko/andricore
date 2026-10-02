@@ -35,6 +35,7 @@
     padding: 40px 32px;
   }
 }
+
 /* hero without a background image: dark text, aligned with page content */
 .hero:not(:has(picture)) {
   min-height: unset;
