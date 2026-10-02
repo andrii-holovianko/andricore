@@ -1,6 +1,17 @@
 import { createOptimizedPicture, readBlockConfig } from '../../scripts/aem.js';
 
 /**
+ * Publication time in ms: authored `date` metadata, falling back to lastModified.
+ * @param {object} article Index entry
+ * @returns {number}
+ */
+function articleTime(article) {
+  const authored = Date.parse(article.date);
+  if (!Number.isNaN(authored)) return authored;
+  return Number(article.lastModified || 0) * 1000;
+}
+
+/**
  * Fetches pages from the query index.
  * @param {string} prefix Only pages whose path starts with this prefix
  * @returns {Promise<object[]>} Index entries, newest first
@@ -11,12 +22,12 @@ async function fetchArticles(prefix) {
   const { data = [] } = await resp.json();
   return data
     .filter((entry) => entry.path.startsWith(prefix) && entry.path !== prefix)
-    .sort((a, b) => Number(b.lastModified || 0) - Number(a.lastModified || 0));
+    .sort((a, b) => articleTime(b) - articleTime(a));
 }
 
-function formatDate(seconds) {
-  if (!Number(seconds)) return '';
-  return new Date(Number(seconds) * 1000).toLocaleDateString('en-GB', {
+function formatDate(time) {
+  if (!time) return '';
+  return new Date(time).toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric',
   });
 }
@@ -35,7 +46,7 @@ function buildCard(article) {
 
   const body = document.createElement('div');
   body.className = 'article-list-body';
-  const date = formatDate(article.lastModified);
+  const date = formatDate(articleTime(article));
   if (date) {
     const time = document.createElement('p');
     time.className = 'article-list-date';
