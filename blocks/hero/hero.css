@@ -5,15 +5,52 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 88px 20px 56px;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(44px, 9vw, 88px);
+}
+
+/* eyebrow: a short paragraph right before the h1 */
+.hero p:has(+ h1) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 28px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 6px 14px 6px 10px;
+  background-color: var(--surface-color);
+  color: var(--dark-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.hero p:has(+ h1)::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--link-color);
+  box-shadow: 0 0 0 4px var(--accent-soft-color);
+}
+
+.hero h1 + p {
+  max-width: 640px;
+  margin-top: 28px;
+  color: var(--dark-color);
+  font-size: clamp(19px, 2.2vw, 22px);
+  line-height: 1.55;
+}
+
+.hero h1 + p strong {
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 .hero picture {
@@ -30,19 +67,13 @@
   height: 100%;
 }
 
+/* hero with a background image keeps light text */
+.hero:has(picture) h1 {
+  color: var(--background-color);
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 128px 32px 72px;
   }
-}
-
-/* hero without a background image: dark text, aligned with page content */
-.hero:not(:has(picture)) {
-  min-height: unset;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero:not(:has(picture)) h1 {
-  color: var(--text-color);
 }

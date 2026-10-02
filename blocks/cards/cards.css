@@ -3,17 +3,45 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--surface-color);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cards > ul > li:hover {
+  border-color: color-mix(in srgb, var(--link-color) 45%, var(--border-color));
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  flex: 1;
+  padding: 28px;
+}
+
+.cards .cards-card-body > :first-child {
+  margin-top: 0;
+}
+
+.cards .cards-card-body h3 {
+  margin: 0;
+  font-size: var(--heading-font-size-s);
+  letter-spacing: -0.01em;
+}
+
+.cards .cards-card-body p {
+  margin-top: 10px;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
 }
 
 .cards .cards-card-image {
@@ -24,4 +52,56 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+/* work: bigger cards with a highlighted outcome line */
+.cards.work > ul {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.cards.work .cards-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards.work .cards-card-body > p:last-child:has(strong) {
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--text-color);
+}
+
+.cards.work .cards-card-body > p:last-child strong {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* compact: certifications, short facts */
+.cards.compact > ul {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.cards.compact .cards-card-body {
+  padding: 22px 24px;
+}
+
+.cards.compact .cards-card-body h3 {
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+}
+
+.cards.compact .cards-card-body p {
+  margin-top: 6px;
+  font-size: var(--body-font-size-xs);
+}
+
+/* small mono label above the title */
+.cards .cards-card-body > p:first-child:has(+ h3) {
+  margin-bottom: 14px;
+  color: var(--link-color);
+  font-family: var(--mono-font-family);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

@@ -1,5 +1,5 @@
-# Your Project's Title...
-Your project's description...
+# andricore
+Personal site and blog of Andrii Holovianko — Senior AEM Developer & Architect. Built on Adobe Edge Delivery Services with content authored in DA (da.live).
 
 ## Environments
 - Preview: https://main--andricore--andrii-holovianko.aem.page/

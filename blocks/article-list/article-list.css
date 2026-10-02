@@ -1,51 +1,102 @@
+.article-list > p {
+  color: var(--dark-color);
+}
+
 .article-list > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
+}
+
+.article-list > ul > li {
+  margin: 0;
 }
 
 .article-list > ul > li > a {
   display: flex;
   flex-direction: column;
   height: 100%;
-  border: 1px solid #dadada;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--surface-color);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
 }
 
 .article-list > ul > li > a:hover {
-  border-color: var(--link-color);
+  border-color: color-mix(in srgb, var(--link-color) 45%, var(--border-color));
+  transform: translateY(-2px);
 }
 
 .article-list .article-list-image {
   line-height: 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .article-list .article-list-image img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1200 / 627;
   object-fit: cover;
 }
 
 .article-list .article-list-body {
-  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 28px 28px;
 }
 
 .article-list .article-list-body h3 {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: var(--heading-font-size-s);
+  line-height: 1.3;
 }
 
 .article-list .article-list-body p {
-  margin: 0;
-  font-size: var(--body-font-size-xs);
+  margin: 10px 0 0;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.55;
 }
 
-.article-list .article-list-date {
-  margin-bottom: 8px;
-  color: var(--dark-color);
+.article-list .article-list-body .article-list-date {
+  order: -1;
+  margin: 0 0 10px;
+  color: var(--link-color);
+  font-family: var(--mono-font-family);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.article-list .article-list-body::after {
+  content: 'Read article →';
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+}
+
+.article-list .article-list-image-placeholder {
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 1200 / 627;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--code-accent-color) 22%, transparent), transparent 55%),
+    var(--code-background-color);
+  line-height: 1.4;
+}
+
+.article-list .article-list-image-placeholder span {
+  color: var(--code-accent-color);
+  font-family: var(--mono-font-family);
+  font-size: 13px;
+  word-break: break-all;
 }

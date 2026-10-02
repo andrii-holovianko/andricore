@@ -1,0 +1,86 @@
+.timeline ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline li {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 36px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.timeline li:last-child {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.timeline .timeline-meta {
+  color: var(--dark-color);
+  font-family: var(--mono-font-family);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.timeline .timeline-meta p {
+  margin: 0;
+}
+
+.timeline .timeline-body > :first-child {
+  margin-top: 0;
+}
+
+.timeline .timeline-body h3 {
+  margin: 0;
+  font-size: var(--heading-font-size-m);
+}
+
+.timeline .timeline-body h3 + p {
+  margin-top: 4px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 550;
+}
+
+.timeline .timeline-body p,
+.timeline .timeline-body ul {
+  font-size: var(--body-font-size-s);
+}
+
+.timeline .timeline-body ul {
+  padding-left: 1.1em;
+}
+
+.timeline .timeline-body li {
+  display: list-item;
+  padding: 0;
+  border: 0;
+}
+
+.timeline .timeline-body li::marker {
+  color: var(--link-color);
+}
+
+/* stack line: last paragraph rendered as tags */
+.timeline .timeline-body > p:last-child:has(code) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.timeline .timeline-body > p:last-child code {
+  border-radius: 999px;
+  padding: 3px 10px;
+  color: var(--dark-color);
+  font-size: 12px;
+}
+
+@media (width >= 900px) {
+  .timeline li {
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    padding: 44px 0;
+  }
+}

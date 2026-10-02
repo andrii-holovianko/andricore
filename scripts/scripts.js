@@ -156,6 +156,26 @@ function decorateButtons(main) {
 }
 
 /**
+ * Adds a small label above the section heading from the `Eyebrow` key of
+ * section metadata (the delivery pipeline exposes it as `data-eyebrow`).
+ * @param {Element} main The main element
+ */
+function decorateSectionEyebrows(main) {
+  main.querySelectorAll(':scope > .section[data-eyebrow]').forEach((section) => {
+    const eyebrow = document.createElement('p');
+    eyebrow.className = 'eyebrow';
+    eyebrow.textContent = section.dataset.eyebrow;
+    let content = section.querySelector(':scope > .default-content-wrapper');
+    if (!content) {
+      content = document.createElement('div');
+      content.className = 'default-content-wrapper';
+      section.prepend(content);
+    }
+    content.prepend(eyebrow);
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -164,6 +184,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionEyebrows(main);
   decorateBlocks(main);
   decorateButtons(main);
 }
@@ -207,6 +228,10 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   loadFooter(doc.querySelector('body > footer'));
+
+  if (main.querySelector('pre > code')) {
+    import('./highlight.js').then(({ default: highlight }) => highlight(main));
+  }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();

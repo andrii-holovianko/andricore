@@ -37,12 +37,18 @@ function buildCard(article) {
   const a = document.createElement('a');
   a.href = article.path;
 
+  const image = document.createElement('div');
+  image.className = 'article-list-image';
   if (article.image && !article.image.includes('default-meta-image')) {
-    const image = document.createElement('div');
-    image.className = 'article-list-image';
     image.append(createOptimizedPicture(article.image, article.title, false, [{ width: '750' }]));
-    a.append(image);
+  } else {
+    // no cover: a typographic placeholder in the style of the code blocks
+    image.classList.add('article-list-image-placeholder');
+    const label = document.createElement('span');
+    label.textContent = article.path;
+    image.append(label);
   }
+  a.append(image);
 
   const body = document.createElement('div');
   body.className = 'article-list-body';

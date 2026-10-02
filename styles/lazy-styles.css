@@ -1,1 +1,58 @@
 /* add global styles that can be loaded post LCP here */
+/* stylelint-disable selector-class-pattern -- highlight.js token classes */
+
+/* syntax highlighting, tuned to the article diagrams' palette */
+.hljs-comment,
+.hljs-quote {
+  color: #7d8796;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-built_in {
+  color: #e8a33d;
+}
+
+.hljs-tag,
+.hljs-name {
+  color: #8fb6e8;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-section {
+  color: #e8a33d;
+}
+
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #a8cf8e;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable {
+  color: #d8a6e8;
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-type {
+  color: #8fd1d6;
+}
+
+.hljs-meta,
+.hljs-punctuation {
+  color: #8b95a3;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 650;
+}
