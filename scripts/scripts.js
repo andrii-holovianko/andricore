@@ -10,6 +10,7 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  getMetadata,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -74,6 +75,17 @@ function buildWidgetAutoBlocks(main) {
 }
 
 /**
+ * Adds an article-meta block (author, date) after the H1 on article pages.
+ * @param {Element} main The container element
+ */
+function buildArticleMeta(main) {
+  if (getMetadata('template') !== 'article') return;
+  const h1 = main.querySelector('h1');
+  if (!h1 || main.querySelector('.article-meta')) return;
+  h1.after(buildBlock('article-meta', ''));
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -97,6 +109,7 @@ function buildAutoBlocks(main) {
       });
     }
     buildWidgetAutoBlocks(main);
+    buildArticleMeta(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

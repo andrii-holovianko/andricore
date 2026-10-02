@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-xs);
+}
+
+.table th,
+.table td {
+  padding: 8px 12px;
+  border: 1px solid #dadada;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  background-color: var(--light-color);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--light-color);
+}
