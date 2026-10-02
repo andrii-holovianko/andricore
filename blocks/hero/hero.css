@@ -35,3 +35,13 @@
     padding: 40px 32px;
   }
 }
+/* hero without a background image: dark text, aligned with page content */
+.hero:not(:has(picture)) {
+  min-height: unset;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero:not(:has(picture)) h1 {
+  color: var(--text-color);
+}
