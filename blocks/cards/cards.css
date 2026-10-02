@@ -105,3 +105,12 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+.cards .cards-card-body a:any-link {
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.cards .cards-card-body a[href^='http']::after {
+  content: ' ↗';
+}
